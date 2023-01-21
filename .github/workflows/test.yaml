@@ -1,0 +1,26 @@
+name: test
+
+on:
+  push:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        include:
+          - php-version: '7.0'
+          - php-version: '7.1'
+          - php-version: '7.2'
+          - php-version: '7.3'
+          - php-version: '7.4'
+          - php-version: '8.0'
+          - php-version: '8.1'
+          - php-version: '8.2'
+          - php-version: '8.3'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+      - run: php test.php
