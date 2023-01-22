@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-function test(int $x)
+function test(string $x)
 {
     var_dump($x);
 }
